@@ -5,37 +5,33 @@
     <title>MIDI MELODY MACHINE</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="libraries/webmidi.min.js" type="text/javascript"></script>
-    <script src="libraries/p5.js" type="text/javascript"></script> 
-    <script src="libraries/howler.core.min.js" type="text/javascript"></script>
-      <!-- <script src="libraries/p5.dom.js" type="text/javascript"></script>
-    <script src="libraries/p5.sound.js" type="text/javascript"></script> -->
+    <script src="libraries/p5.js" type="text/javascript"></script>
     <link href='style.css' rel='stylesheet' type='text/css'>
     <script src="improvedchords.js" type="text/javascript"></script>
     <script src="drums.js" type="text/javascript"></script>
-    <script src="samples.js" type="text/javascript"></script>
   </head>
   <body>
   <div class="container">
      <div class="tempo">Set tempo here!
        <input type="number" id="bpm" min="60" max="300"  value="120"/>
        </div>
-       <div id=chord class=out>Hook these        
+       <div id=chord class=out>Hook these
        <select class = chordoutput>
 
         <option>Pick your chord outty!</option>
-      </select> 
+      </select>
       </div>
-      <div id=lead class=out>MIDI channels to 
+      <div id=lead class=out>MIDI channels to
       <select class = leadoutput>
         <option>Pick your lead outty!</option>
-      </select> 
+      </select>
       </div>
       <div id=drum class=out>Your favorite sounds
       <select class= drumoutput>
         <option>Pick your drum outty!</option>
-      </select> 
+      </select>
       </div>
-      <div>  
+      <div>
           <button type="button" id="startbutton">Start me up</button>
       </div>
       </div>
