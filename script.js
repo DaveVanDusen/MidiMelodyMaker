@@ -140,11 +140,11 @@ function draw() {
     }
 
     if(drum){
-      if(simpleprob(3,4)){
+      if(simpleprob(2,4)){
       drum.playNote(drumArray, 3/*,{time: "+50"}*/);
       drum.stopNote(drumArray, 3, {time: "+500"});
       } else {
-        drumFill(drum,tempo,[3]);
+        drumFill(drum,tempo,[3,4]);
         drum.playNote(drumArray, 3/*,{time: "+50"}*/);
         drum.stopNote(drumArray, 3, {time: "+500"});
 
