@@ -1,0 +1,34 @@
+.tempo{
+	text-align: center;
+	font-family: Helvetica;
+	font-style: italic; 
+}
+
+select{
+
+	background-color: blue	;
+	outline: 0;	
+
+    
+}
+
+#chord{
+	
+	background-color: red;
+
+}
+
+#lead{
+	background-color: white;
+	text-align:center;
+}
+
+#drum{
+background-color:red;
+text-align:right;
+}
+
+#startbutton{
+	background-color:red;
+	text-align: center;	
+}
