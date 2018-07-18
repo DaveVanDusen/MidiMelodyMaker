@@ -49,6 +49,7 @@ function Chord(currentScale,patternLength,chordIteration){
     }
 
     let currentRoman = this.chordprog[chordCounter];
+    console.log(this.chordprog[chordCounter]);
     if(this.lastCounter !== chordCounter){
     $('.chordbutton').removeClass('current');
     }
@@ -56,14 +57,14 @@ function Chord(currentScale,patternLength,chordIteration){
 
     let noteOn = 0;
     let incrementer = floor(1000*(60/(tempo*subdivision)));
-    let sustain = floor(1000*(60*picker(8)/(tempo)))
+    let sustain = floor(1000*(60/(tempo**picker(8))))
     let currentChord = this.currentChord;
     // console.log(this.beat);
     if(this.rhythm[this.beat]){
 
         for(i = 0; i < currentChord.length; i++){
           MIDI.playNote(currentChord[i], this.out , {time: "+"+noteOn, velocity:(0.2+Math.random())/2});
-          MIDI.stopNote(currentChord[i], this.out , {time: "+"+noteOn+sustain});
+          MIDI.stopNote(currentChord[i], this.out , {time: "+"+noteOn+sustain, velocity: 0.9});
           noteOn += incrementer;
         }
 

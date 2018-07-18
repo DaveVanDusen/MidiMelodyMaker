@@ -123,9 +123,8 @@ function draw () {
   if(MIDI !== undefined){
   drums.play(counter,MIDI,tempo);
   //Chord Triggering
-
   bass.pluck(chordCounter,counter,MIDI,tempo);
-chord.strum(chordCounter,MIDI,tempo, strumSpeed);
+  chord.strum(chordCounter,MIDI,tempo, strumSpeed);
   }
 
   if(fillTiming != 0 && chordCounter%fillTiming == 0){
