@@ -1,14 +1,13 @@
-
-
  function voicings(arr){
- var voicing = arr.slice();
-  for(i = 0; i < 7; i++){
-  //Removes a random note from the chord
-  mutedNote = ceil(random(voicing.length-1));
-   //the root
-  voicing.splice(mutedNote,1);
-  }
-  return voicing;
+   let maximum = Math.floor(arr.length * Math.random())
+   var voicing = arr.slice();
+    for(i = 0; i < 3; i++){
+    //Removes a random note from the chord
+    mutedNote = ceil(random(voicing.length-1));
+     //the root
+    voicing.splice(mutedNote,1);
+    }
+    return voicing;
  }
 
 // Selects a value within an array
@@ -135,7 +134,6 @@ function euclideanrhythm(beats, accents){
         array[i] = "0";
       }
     }
-
   //start distributing the accents
   while(groups-leftItems > 1){
       //which group is larger
@@ -160,18 +158,16 @@ function euclideanrhythm(beats, accents){
       array.push(parseInt(output[i]));
     }
   return array;
-
   }
 
 function createScale(scaleRatio, octaves){
-currentScale = [];
-
-for(h = 0; h < octaves; h++){
-  for (var i = 0; i < scaleRatio.length; i++){
-     currentScale.push(scaleRatio[i] + rootNote + (12*h));
+  currentScale = [];
+  for(h = 0; h < octaves; h++){
+    for (var i = 0; i < scaleRatio.length; i++){
+       currentScale.push(scaleRatio[i] + rootNote + (12*h));
+    }
   }
-}
-return currentScale;
+  return currentScale;
 }
 
 
@@ -208,6 +204,23 @@ function melodymaker(scale, patternLength){
   return melody;
 }
 
+function createChords(currentScale){
+  allChords = [];
+  for(var j = 0; j < 7; j++){
+    currentChord = [];
+    for(i = 0; i < 3; i++){
+      for(k = 0; k < 3; k++){
+        chordIndex = (j + (2*k) + (i * 7))%currentScale.length;
+        currentChord.push(currentScale[chordIndex]);
+
+      }
+
+    }
+    allChords.push(currentChord);
+  }
+  return allChords
+}
+
 function chordprogression(currentScale, patternLength){
   let selector = floor(random(currentScale.length));
   let progression = [];
@@ -217,7 +230,7 @@ function chordprogression(currentScale, patternLength){
     currentChord = [];
     for(i = 0; i < 3; i++){
       for(k = 0; k < 4; k++){
-        chordIndex = (selector + (2*k) + (i * 12))%currentScale.length;
+        chordIndex = (selector + (2*k) + (i * 7))%currentScale.length;
         currentChord.push(currentScale[chordIndex]);
       }
     }
@@ -249,9 +262,9 @@ function chordprogression(currentScale, patternLength){
   return progression;
 }
 
-function legatochords(currentChord, midiChannel, tempo){
+function legatochords(currentChord, midiChannel, tempo, subdivision){
   noteOn = 0;
-  incrementer = floor(1000*(60/(tempo*3)));
+  incrementer = floor(1000*(60/(tempo*subdivision)));
   for(i = 0; i < currentChord.length; i++){
     midiChannel.playNote(currentChord[i], 1 , {time: "+"+noteOn});
     noteOn += incrementer;
@@ -260,13 +273,11 @@ function legatochords(currentChord, midiChannel, tempo){
 
 
 function drumFill(midiChannel, tempo,subdivisionArray){
-  noteOn = 0;
-  var drumsOptions = [38,41,43,45];
-  var drumChoice = drumsOptions.filter(function(){return Math.round(Math.random())})
+  let noteOn = 0;
+  let drumsOptions = [38,41,43,45];
+  let drumChoice = drumsOptions.filter(function(){return Math.round(Math.random())})
   drumChoice = !drumChoice.length ? [[38,42,42,45][picker(4)]]: drumChoice;
   curSubdivision = subdivisionArray[picker(subdivisionArray.length)]
-
-
   incrementer = floor(1000*(60/(tempo*curSubdivision)));
 
   for(i = 0; i < curSubdivision; i++){
@@ -287,4 +298,8 @@ function shuffleArray(array){
     index = floor(random(array.length));
   }
   return outputArray;
+}
+
+function strumSpeed(sliderPosition){
+  let possibleSpeeds = [2,3,4,8,16,24]
 }

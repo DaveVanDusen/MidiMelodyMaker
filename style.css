@@ -1,34 +1,126 @@
+body{
+	font-family:Helvetica;
+	font-weight: bold;
+	text-align: center;
+}
+
 .tempo{
 	text-align: center;
 	font-family: Helvetica;
-	font-style: italic; 
+	font-style: italic;
 }
 
 select{
+	background-color: white	;
+	outline: 0;
+}
 
-	background-color: blue	;
-	outline: 0;	
 
-    
+.toggle{
+display: inline-block;
+font-size: small;
+text-shadow: none;
+height: 30px;
+background-color: black;
+color: white;
+line-height: 30px;
+padding-left: 5px;
+padding-right: 5px;
+text-align:center;
+}
+
+#bpm{
+	width:50px;
+	font-style: italic;
+	font-family: Helvetica;
+	font-weight: bolder;
+	font-size: small;
+}
+
+.output{
+	font-style: italic;
+	font-family: Helvetica;
+	font-weight: bolder;
+	font-size: small;
+}
+
+.drumfeel{
+	background-color:grey;
+}
+
+.nochord{
+	color: black;
+}
+
+.current{
+	background-color:green;
+
+}
+
+select option{
+	font-style: italic;
+	font-family: Helvetica;
+	font-weight: bolder;
+	font-size: small;
 }
 
 #chord{
-	
-	background-color: red;
-
+	background-color: purple;
 }
 
 #lead{
-	background-color: white;
-	text-align:center;
+	background-color: green;
+
 }
 
 #drum{
-background-color:red;
-text-align:right;
+	background-color:red;
+}
+
+#bass{
+		background-color: blue;
 }
 
 #startbutton{
 	background-color:red;
-	text-align: center;	
+}
+
+.container{
+
+}
+
+.instrument{
+	width:40%;
+	height:250px;
+	display:inline-table;
+	font-size: -webkit-xxx-large;
+	margin:5px;
+	text-shadow: 1px 1px white;
+	padding: 10px;
+	border-radius: 3%;
+
+}
+
+.instrument:hover{
+	text-shadow: 3px 3px white;
+}
+
+.slidecontainer{
+	font-size: large;
+	text-shadow: none;
+	font-style: italic;
+}
+
+input{
+	width: 90%;
+}
+
+.banner{
+	text-align: center;
+	width:100%;
+	display:inline-block;
+	height:auto;
+	font-size: -webkit-xxx-large;
+	margin:5px;
+	text-shadow: 1px 1px yellow;
 }

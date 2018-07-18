@@ -17,12 +17,13 @@ var noteOff;
 var chordOff;
 var selector, lastselector;
 var chordRhythm, lastChord, lastNote, thisNote;
+var test;
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
   noteOff = 1000*60/tempo;
   chordOff = 2*1000*60/tempo;
   frameRate(tempo/60);
   currentScale = createScale(scaleRatio, 3);
+  test = new Lead(currentScale,patternLength);
   //This makes the melody
   themelody = melodymaker(currentScale, patternLength);
   rootNote = rootNote-12;
@@ -91,6 +92,16 @@ $(document).ready(function(){
     console.log($('#bpm').val());
     bpmChanged = true;
   });
+
+$('input[type=range]').on('input', function () {
+    $(this).trigger('change');
+});
+
+$("[type=range]").change(function(){
+  let newval=$(this).val();
+  let currIx = $('.slider').index(this);
+  console.log('Current Value: ',newval, 'Current Index', currIx)
+});
 });
 
 function draw() {
@@ -125,7 +136,7 @@ function draw() {
     chord.stopNote(lastChord, 1);
     }
     // chord.playNote(theprogression[chordCounter], 1);
-    legatochords(thisChord, chord, tempo);
+    legatochords(thisChord, chord, tempo, strumSpeed);
     lastChord = thisChord;
 
     }
