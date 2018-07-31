@@ -13,6 +13,7 @@ function Bass(currentScale,progression){
   this.rootNote;
   this.busyness = 1;
   this.attentiveness = 3;
+  this.octave = 0;
 
   this.pluck = function(chordCounter,counter,MIDI,tempo, subdivision){
     // if(this.lastChord){
@@ -21,7 +22,7 @@ function Bass(currentScale,progression){
     let noteOn = 0;
     let incrementer = floor(1000*(60/(tempo*subdivision)));
     let sustain = floor(1000*(60*2/(tempo)))
-    let currentChord = this.chordprog[chordCounter].map(a=>a-12);
+    let currentChord = this.chordprog[chordCounter].map(a=>a-this.octave);
 
 
     let rootNote = currentChord[0];

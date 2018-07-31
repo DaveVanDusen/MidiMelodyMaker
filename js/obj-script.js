@@ -4,7 +4,7 @@ var fillTiming = 0; var drumComplexity = 1;
 var currentScale = [];
 var rootNote = 40;
 var counter = 0, chordCounter = 0;
-var chordIteration = 16;
+var chordIteration = 8;
 var patternLength = 8;
 var chord,lead,drums;
 var tempo = 120;
@@ -42,7 +42,7 @@ WebMidi.enable(function (err) {
   }
 
   for(i = 0; i < chord.romans.length;i++){
-    $('#chord').append("<div class='toggle chordbutton'>"+chord.romans[i]+"</div>")
+    $('.romans').append("<div class='toggle chordbutton'>"+chord.romans[i]+"</div>")
   }
 
   $('.chordbutton').click(function() {
@@ -57,8 +57,9 @@ WebMidi.enable(function (err) {
 
 
   $('.drumfeel').click(function(){
+    $('.drumfeel').removeClass('selected');
+    $(this).addClass('selected');
     drums.mode = $('.drumfeel').index(this);
-
   });
 })
 
@@ -69,9 +70,9 @@ $(document).ready(function(){
     bpmChanged = true;
   });
 
-  $('input[type=range]').on('input', function () {
-      $(this).trigger('change');
-  });
+  // $('input[type=range]').on('input', function () {
+  //     $(this).trigger('change');
+  // });
 
   $("[type=range]").change(function(){
     let newval=$(this).val();
@@ -84,21 +85,23 @@ $(document).ready(function(){
       chord.newRhythm(newval);
       break;
       case 2:
-
+      console.log('Yup!')
       break;
       case 3:
 
       break;
       case 4:
-      fillTiming = fillTimings[6-newval];
       break;
       case 5:
-      drums.complexity = 100-newval;
+      fillTiming = fillTimings[6-newval];
       break;
       case 6:
-      bass.attentiveness = newval;
+      drums.complexity = 100-newval;
       break;
       case 7:
+      bass.attentiveness = newval;
+      break;
+      case 8:
       bass.busyness = newval;
       break;
 
@@ -114,7 +117,7 @@ function draw () {
   }
   counter = frameCount%patternLength;
   // 2 bars per chord
-  chordCounter = floor(frameCount/chord.chordLength)%patternLength;
+  chordCounter = floor(frameCount/chord.chordLength)%chord.chordLength;
 
 
   // Determines which type of drum beat was generated

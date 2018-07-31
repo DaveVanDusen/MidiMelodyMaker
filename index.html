@@ -26,6 +26,9 @@
       <input type="number" id="bpm" min="60" max="300"  value="120"/>
     </div>
 
+    <div class="romans"></div>
+
+
   <div class="container">
        <div id="chord" class="instrument">
          <div>CHORD</div>
@@ -34,45 +37,45 @@
            <input type="range" min="1" max="7" value="1" class="slider" id="strum">
           <b> Busy-ness</b>
            <input type="range" min="1" max="100" value="1" class="slider" id="chord_freq">
-         </div>
+         <b>Ringy-ness</b>
+         <input type="range" min="1" max="100" value="1" class="slider" id="myRange3">
+         <!-- <b>Chord Size</b>
+         <input type="range" min="1" max="100" value="1" class="slider" id="myRange3"> -->
+       </div>
       </div>
+
 
       <div id="lead" class="instrument">
-        <div>LEAD</div>
-      <!-- <select class ="leadoutput">
-        <option>Pick your lead outty!</option>
-      </select> -->
-      <div class="slidecontainer">
-        <b>Busy-ness</b>
-        <input type="range" min="1" max="100" value="1" class="slider" id="lead_freq">
-        <b>Songy-ness</b>
-        <input type="range" min="1" max="100" value="1" class="slider" id="myRange1">
-      </div>
-      </div>
-      <div id="drum" class="instrument">DRUM
-      <!-- <select class="drumoutput">
-        <option>Pick your drum outty!</option>
-      </select> -->
+          <div>LEAD</div>
+        <!-- <select class ="leadoutput">
+          <option>Pick your lead outty!</option>
+        </select> -->
         <div class="slidecontainer">
-          Filly-ness
-          <input type="range" min="0" max="6" value="0" class="slider" id="myRange2">
-          Complexity
-          <input type="range" min="0" max="100" value="1" class="slider" id="myRange2">
-          </div>
-            <div class="toggle drumfeel">8</div>
-            <div class="toggle drumfeel">16</div>
-            <div class="toggle drumfeel">SHUF</div>
-            <div class="toggle drumfeel">SYNCO-P8</div>
-
+          <b>Busy-ness</b>
+              <input type="range" min="1" max="100" value="1" class="slider" id="lead_freq">
+              <b>Songy-ness</b>
+              <input type="range" min="1" max="100" value="1" class="slider" id="myRange1">
+        </div>
+      </div>
+      <div id="drum" class="instrument">
+        <div>DRUM</div>
+        <div class="slidecontainer">
+              Filly-ness
+              <input type="range" min="0" max="6" value="0" class="slider" id="myRange2">
+              Complexity
+              <input type="range" min="0" max="100" value="1" class="slider" id="myRange2">
+              </div>
+                <div class="toggle drumfeel selected">8</div>
+                <div class="toggle drumfeel">16</div>
+                <div class="toggle drumfeel">SHUF</div>
       </div>
       <div id="bass" class="instrument">BASS
           <div class="slidecontainer">
-            Attentiveness
-            <input type="range" min="1" max="20" value="3" class="slider" id="myRange2">
-            Busy-ness
-            <input type="range" min="1" max="100" value="1" class="slider" id="myRange2">
+              <span>Attentiveness</span>
+              <input type="range" min="1" max="20" value="3" class="slider" id="myRange1">
+              <span>Busy-ness</span>
+              <input type="range" min="1" max="100" value="1" class="slider" id="myRange2">
           </div>
-
       </div>
-      </div>
+    </div>
       </body>
